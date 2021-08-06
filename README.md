@@ -59,7 +59,7 @@ versión 1.20.1
 
 * Durante la ejecución de su código ¿se utiliza más de un procesador? Muestre una imagen (screenshot) de su uso de procesador durante alguna corrida para confirmar.
 ![image](https://user-images.githubusercontent.com/88336928/128525360-e352486f-f0e7-4fe7-abbf-c5ee546bd0b3.png)
-Se utilizan 8 procesadores
+Se utilizan los 4 procesadores y 8 hilos.
 
 
 
