@@ -61,6 +61,28 @@ versión 1.20.1
 ![image](https://user-images.githubusercontent.com/88336928/128525360-e352486f-f0e7-4fe7-abbf-c5ee546bd0b3.png)
 Se utilizan los 4 procesadores y 8 hilos.
 
+# Desempeño de INVERSA
+* Para cada tipo de dato se puede ver en los gráficos:
+![Caso 1 double](https://user-images.githubusercontent.com/88336928/129896762-00aa975c-b884-4b8d-8cef-407cf3af7801.png)
+![Caso 1 single](https://user-images.githubusercontent.com/88336928/129896813-b6cbae76-187a-4b11-99d0-710676f398e1.png)
+![Caso 2 double](https://user-images.githubusercontent.com/88336928/129896839-9dcdf194-5f48-4e94-9843-53ce633d7a29.png)
+![Caso 2 half](https://user-images.githubusercontent.com/88336928/129896861-2ba295c5-889e-4604-8d5d-c7313f8b86a2.png)
+![Caso 2 longdouble](https://user-images.githubusercontent.com/88336928/129896886-86e01d75-bc05-46b6-b010-38c40146fb4f.png)
+![Caso 2 single](https://user-images.githubusercontent.com/88336928/129896906-8c5ea3d3-1eff-4cb4-b176-f5e70db521af.png)
+![Caso 3 double](https://user-images.githubusercontent.com/88336928/129896934-c2c50294-7b5c-45d0-a3bc-ae5eabcc1fce.png)
+![Figure_1](https://user-images.githubusercontent.com/88336928/129896957-26168bd6-b2e4-459b-ae71-dc24c89108f9.png)
+![Caso 3 Longdouble](https://user-images.githubusercontent.com/88336928/129896977-421f9a1b-9b8b-4d0c-95b5-6b5292313bbc.png)
+![Caso 3 single](https://user-images.githubusercontent.com/88336928/129896995-a42fdac8-f09a-4280-be6e-cdd2a509cdee.png)
+
+Para el caso 1 half y longdouble, no se logra ejecutar.
+Además se puede ver que se utiliza más memoria a medida que el tamaño de la matriz aumenta.
+
+* ¿Qué algoritmo de inversión cree que utiliza cada método (ver wiki)?
+Se utiliza el algoritmo de Laplacian Matrix, este es un algoritmo con complejidad factorial, lo cual hace que resolver el sistema mediante este método no sea la mejor opción, debido a su demora. Matriz donde las columnas representan a las aristas del grafo y las filas a los vértices. El elemento (i,j) representa que la arista i incide en el vértice j. La diagonal esta compuesta por 2, y las diagonales adyacentes superior e inferior a la central estan compuestas por -1. Además se utiliza la Invertible Matrix, para el caso 1 se utiliza la libreria de Numpy y en el caso 2 y 3 se utiliza la libreria Scipy. En ambos casos se resuelve un sistema lineal de ecuaciones.
+
+* ¿Como incide el paralelismo y la estructura de caché de su procesador en el desempeño en cada caso? Justifique su comentario en base al uso de procesadores y memoria observado durante las corridas. 
+El paralelismo es una función que realiza el procesador para ejecutar varias tareas al mismo tiempo, realizando varios cálculos simultáneamente (paralelismo de datos). Los sistemas informáticos suelen hacer uso de cachés, ubicados cerca del procesador que almacenan las copias temporales de los valores de la memoria. Como se mencionó anteriormente el caso que presentó menos desempeño utilizando otras aplicaciones o programas mientras se corria el código fue el caso 1.
+
 
 
 
