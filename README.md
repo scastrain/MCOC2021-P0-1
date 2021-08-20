@@ -84,6 +84,30 @@ Se utiliza el algoritmo de Laplacian Matrix, este es un algoritmo con complejida
 El paralelismo es una función que realiza el procesador para ejecutar varias tareas al mismo tiempo, realizando varios cálculos simultáneamente (paralelismo de datos). Los sistemas informáticos suelen hacer uso de cachés, ubicados cerca del procesador que almacenan las copias temporales de los valores de la memoria. Como se mencionó anteriormente el caso que presentó menos desempeño utilizando otras aplicaciones o programas mientras se corria el código fue el caso 1.
 
 
+# Desempeño de Solve y Eigh
+* Haga un comentario completo respecto de todo lo que ve en términos de desempeño en cada problema. 
+-	Desempeño timing solve: para este caso se logo generar una matriz máxima de 2000x2000, no se ogra llegar a una de 10000x10000 ya que el rendimiento de mi computador no permite que esto ocurra en menos de 2 minutos. 
+-	Desempeño timing eigh float y double: para este caso se logo generar una matriz máxima de 800x800, no se ogra llegar a una de 10000x10000. Se puede ver que este es más rápido que el desempeño de eigh double.
+
+* ¿Como es la variabilidad del tiempo de ejecución para cada algoritmo? 
+-	Tiene un incremento exponencial a medida que aumentan las matrices. 
+* ¿Qué algoritmo gana (en promedio) en cada caso? 
+-	Desempeño timing solve: A_invB_soSolve_pos, la cual es la matriz definida positiva.
+-	Desempeño timing eigh float: A_eigh_caso_5_T la cual tiene overwrite_a=True y driver="evd"
+-	Desempeño timing eigh double: : A_eigh_caso_7_T la cual tiene overwrite_a=True y driver="evr
+
+* ¿Depende del tamaño de la matriz? 
+-	Si depende del tamaño de la matriz, ya que a mayor matriz el desempeño será “peor”.
+* ¿A que se puede deber la superioridad de cada opción? 
+-	Se debe a la cantidad de acciones que se le pide a cada opción, las cuales difieren del set up por default.  
+¿Su computador usa más de un proceso por cada corrida? 
+-	Si, utiliza los cuatro procesadores.
+-	![image](https://user-images.githubusercontent.com/88336928/130275105-ead7e442-9320-4eda-9b71-bb3f1458d69a.png)
+ 
+* ¿Que hay del uso de memoria (como crece)? 
+- A medida que los programas corren, el uso de memoria se mantiene constante.
+![image](https://user-images.githubusercontent.com/88336928/130275128-7e86d41a-9eeb-4f3a-b8ed-b91403b9c865.png)
+
 
 
 
