@@ -110,8 +110,14 @@ El paralelismo es una función que realiza el procesador para ejecutar varias ta
 
 # Matrices dispersas y complejidad computacional
 * Se realizaron 10 corridas con matrices crecientes hasta un N=4500, se observo que a medida que disminuinan las corridas, el tamaño de matriz podia ser mayor (para 280 s de corrida), pero se decidio mantener la cantidad de corridas que fueron indicadas en las entregas anteriores.
+* Caso 1: Complejidad algorítmica de MATMUL
+Se genero el gráfico para la multiplicación de matrices Laplacianas utilizando el formato matriz llena con datos tipo double:
 ![Llena](https://user-images.githubusercontent.com/88336928/130873116-feed7b4a-5d6a-4569-9fc9-5bc1bab0dfd5.png)
-![Dispersa](https://user-images.githubusercontent.com/88336928/130873118-03d83e94-a7a1-4da2-a9c7-9ca1c03e848c.png)
+Luego se repitio el mismo procedimiento para matrices dispersas:
+![Dispersa](https://user-images.githubusercontent.com/88336928/130873857-14301980-19a1-4ec9-b3ec-750f3ebc48dd.png)
+Se puede observar que el tiempo de ensamblado es similar, pero se pueden notar diferencias en el tiempo de solucion. Para mayor tamaño de matriz la llena demora más de un segundo, en cambio la dispersa demora menos de 0.1 s.
+* Código de ensamblaje:
+
 
 
 
