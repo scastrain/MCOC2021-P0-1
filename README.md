@@ -108,7 +108,10 @@ El paralelismo es una función que realiza el procesador para ejecutar varias ta
 - A medida que los programas corren, el uso de memoria se mantiene constante.
 ![image](https://user-images.githubusercontent.com/88336928/130275128-7e86d41a-9eeb-4f3a-b8ed-b91403b9c865.png)
 
-
+# Matrices dispersas y complejidad computacional
+* Se realizaron 10 corridas con matrices crecientes hasta un N=4500, se observo que a medida que disminuinan las corridas, el tamaño de matriz podia ser mayor (para 280 s de corrida), pero se decidio mantener la cantidad de corridas que fueron indicadas en las entregas anteriores.
+![Llena](https://user-images.githubusercontent.com/88336928/130873116-feed7b4a-5d6a-4569-9fc9-5bc1bab0dfd5.png)
+![Dispersa](https://user-images.githubusercontent.com/88336928/130873118-03d83e94-a7a1-4da2-a9c7-9ca1c03e848c.png)
 
 
 
