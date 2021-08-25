@@ -117,7 +117,7 @@ Luego se repitio el mismo procedimiento para matrices dispersas:
 ![Dispersa](https://user-images.githubusercontent.com/88336928/130873857-14301980-19a1-4ec9-b3ec-750f3ebc48dd.png)
 Se puede observar que el tiempo de ensamblado es similar, pero se pueden notar diferencias en el tiempo de solucion. Para mayor tamaño de matriz la llena demora más de un segundo, en cambio la dispersa demora menos de 0.1 s.
 * Código de ensamblaje:
-- Matrices llenas:
+- Matriz llena:
 ```
 from scipy.sparse import lil_matrix, csc_matrix
 from scipy.sparse.linalg import spsolve, inv
@@ -133,7 +133,7 @@ import numpy as np
                 A[i,j]=-1
     return A 
 ``` 
-- Matrices dispersas:
+- Matriz dispersa:
 ```
 def laplaciana_dispersa(N,t=np.double):
     A=lil_matrix((N,N))
