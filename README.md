@@ -148,5 +148,58 @@ def laplaciana_dispersa(N,t=np.double):
     return csc_matrix(A) 
  ```
 
+# Matrices dispersas y complejidad computacional
 
+![Inv_Dispersa](https://user-images.githubusercontent.com/88336928/132034277-df108a87-119d-4d94-8c8c-c5cc3aa63aad.png)
+![Inv_Llena](https://user-images.githubusercontent.com/88336928/132034283-944d76e6-e636-4e78-9f59-242c86492777.png)
+![Solve_Dispersa](https://user-images.githubusercontent.com/88336928/132034297-59e05f8d-cfbf-42ec-b979-ead8cc021f14.png)
+![Solve_Llena](https://user-images.githubusercontent.com/88336928/132034300-c1c0f10f-f417-4ba3-bb93-1f1936a5fa69.png)
 
+* Comente las diferencias que ve en el comportamiento de los algoritmos en el caso de matrices llenas y dispersas.
+  Caso Solve: se puede ver como el tiempo de ensamblado es similar para ambos casos, en cambio el tiempo se solución tiene mayores variaciones. Además, para el caso de matriz llena, se ven discontinuidades a lo largo de las corridas.
+
+  Caso Inv: se puede ver como el tiempo de ensamblado varia, la matriz dispersa se demora más que la llena. El tiempo se solución tiene también tiene variaciones, donde se puede    ver un salto en el caso de matriz llena.
+
+* ¿Cual parece la complejidad asintótica (para N→∞N→∞)  para el ensamblado y solución en ambos casos y porqué?
+  Caso Solv: Para el tiempo de ensamblado se puede ver un comportamiento de complejidad asintótica correspondiente a O(N2), para ambos casos. Para el tiempo de solución se puede ver un comportamiento de complejidad asintótica correspondiente a O(N) para la matriz dispersa y O(N2) para la matriz llena.
+
+ Caso Inv: Para el tiempo de ensamblado se puede ver un comportamiento de complejidad asintótica correspondiente a O(N2), para ambos casos. Para el tiempo de solución se puede ver un comportamiento de complejidad asintótica correspondiente a O(N) para la matriz dispersa y O(N2) para la matriz llena.
+
+* ¿Como afecta el tamaño de las matrices al comportamiento aparente?
+ Cuando se tiene un N menor el tiempo de ensamblado y de solución es mayor, esto se debe al paralelismo, ya que el computador esta haciendo muchas acciones en un inicio. Además, el tiempo se solución se muestra variable a excepción de la matriz inversa dispersa. 
+ 
+* ¿Qué tan estables son las corridas (se parecen todas entre si siempre, nunca, en un rango)?
+ El tiempo de ensamblado tiene corridas más estables, en cambio el tiempo de solución se muestra muy variable, por lo tanto, es más inestable para ambos casos.
+ 
+ * Código de ensamblaje:
+- Matriz llena:
+```
+from scipy.sparse import lil_matrix, csc_matrix
+from scipy.sparse.linalg import spsolve, inv
+import numpy as np
+
+ def laplaciana_llena(N,t=np.double):
+    A=np.identity(N,t)*2
+    for i in range(N):
+        for j in range (N):
+            if i+1==j:
+                A[i,j]=-1
+            if i-1==j:
+                A[i,j]=-1
+    return A 
+``` 
+- Matriz dispersa:
+```
+def laplaciana_dispersa(N,t=np.double):
+    A=lil_matrix((N,N))
+    for i in range(N):
+        for j in range (N):
+            if i==j:
+                A[i,j]=2
+            if i+1==j:
+                A[i,j]=-1
+            if i-1==j:
+                A[i,j]=-1
+    return csc_matrix(A) 
+ ```
+ El codigo de matrices llenas es mucho más comodo que el de dispersas. El segundo caso se demoro menos, pero no fue el más optimo al momento de ensamblar la matriz.
