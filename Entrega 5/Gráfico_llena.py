@@ -3,11 +3,9 @@ import matplotlib.pyplot as plt
 
 
 def graficar(nombres):
-    # Eje y de tiempo transcurrido:
     yticks=[0.0001,0.001,0.01,0.1,1,10,60,600]
     yticks_text=["0.1 ms","1ms","10ms","0.1 s","1 s","10 s", "1 min", "10 min"]
     
-    # Eje x tamaño de matriz:
     xticks=[10,20,50,100,200,500,1000,2000,5000,10000,20000]
     xticks_text=["10","20","50","100","200","500","1000","2000","5000","10000","20000"]
     xticks_text2=[]
@@ -21,8 +19,7 @@ def graficar(nombres):
         Nm = data[:, 0]
         ensamblaje = data[:, 1]
         solucion = data[:, 2]
-        
-        # Se trabaja con los máximos de cada uno
+     
         ensamblaje_max = max(ensamblaje)
         Nmmax = max(Nm)       
         solucion_max = max(solucion)
@@ -30,12 +27,6 @@ def graficar(nombres):
         ensamblajey= 0*Nm + ensamblaje_max
         soluciony=0*Nm + solucion_max
     
-      
-        #print("Ns: ", Nm)
-        #print ("ensamblaje: ", ensamblaje)
-        #print ("solucion: ", solucion)
-        
-  
         
         plt.subplot(2,1,1)
         plt.title("Complejidad MATMUL llena")
